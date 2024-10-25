@@ -1,3 +1,9 @@
+# Authors: Alex Kusek, Athziri Garcia, Shayla Salamon Ruiz, Ayushi Maurya
+# Date: 24 October 2024
+# Description: Evaluates board positions using a sophisticated heuristic that considers multiple factors 
+# including pattern detection (two, three, and four-in-a-row sequences), center control, and positional scoring.
+#This code improved Shayla's N-StepWadjacentcolumnsmove.py 
+
 from kaggle_environments import make, evaluate
 import random
 import numpy as np
