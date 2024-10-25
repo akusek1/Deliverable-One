@@ -144,7 +144,6 @@ def agent(obs, config):
 
     return random.choice(max_cols)
     #agents chooses to make a random move 
-print('ehl')
 # Create the game environment
 env = make("connectx")
 
