@@ -1,3 +1,9 @@
+# Authors: Alex Kusek, Athziri Garcia, Shayla Salamon Ruiz, Ayushi Maurya
+# Date: 24 October 2024
+# Description: This code implements a bot that chooses an adjacent column to place the disk in.
+# The code used was from Alex Kusek's nstep-heuristic.py file which included code taken from 
+# Alexis Cook's One-Step Lookahead and N-Step Lookahead tutorials
+
 from kaggle_environments import make, evaluate
 import random
 import numpy as np
