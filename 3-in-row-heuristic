@@ -1,7 +1,7 @@
 # Authors: Alex Kusek, Athziri Garcia, Shayla Salamon Ruiz, Ayushi Maurya
 # Date: 24 October 2024
 # Description: 
-#Implements a bot that BLANK uses n-step look ahead and your own board evaluation heuristic
+#Implements a bot that uses n-step look ahead and an evaluation heuristic that bases score depending on how many 3 in row pieces there are between agent and oppenent
 #Code inspired by Alexis Cook's One-Step Lookahead and N-Step Lookahead tutorials
 
 from kaggle_environments import make
