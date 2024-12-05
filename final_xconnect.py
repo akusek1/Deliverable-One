@@ -200,25 +200,6 @@ def is_terminal_window(window, config):
     return window.count(1) == config.inarow or window.count(2) == config.inarow
 
 
-# Agent function for the game
-def agent(obs, config):
-    valid_moves = [c for c in range(config.columns) if obs.board[c] == 0]
-    grid = np.asarray(obs.board).reshape(config.rows, config.columns)
-
-    n_steps = 4 if len(valid_moves) <= 6 else 3
-
-    scores = {col: score_move(grid, col, obs.mark, config, n_steps) for col in valid_moves}
-
-    max_score = max(scores.values())
-    best_moves = [key for key in scores.keys() if scores[key] == max_score]
-
-    center_moves = [move for move in best_moves if abs(move - config.columns // 2) <= 1]
-    if center_moves:
-        return random.choice(center_moves)
-
-    return random.choice(best_moves)
-
-
 # Score a move using minimax
 def score_move(grid, col, mark, config, nsteps):
     next_grid = drop_piece(grid, col, mark, config)
@@ -316,6 +297,24 @@ def order_moves(grid, valid_moves, mark, config):
         move_scores.append((-abs(col - config.columns // 2), score, col))
 
     return [col for _, _, col in sorted(move_scores, reverse=True)]
+
+# Agent function for the game
+def agent(obs, config):
+    valid_moves = [c for c in range(config.columns) if obs.board[c] == 0]
+    grid = np.asarray(obs.board).reshape(config.rows, config.columns)
+
+    n_steps = 4 if len(valid_moves) <= 6 else 3
+
+    scores = {col: score_move(grid, col, obs.mark, config, n_steps) for col in valid_moves}
+
+    max_score = max(scores.values())
+    best_moves = [key for key in scores.keys() if scores[key] == max_score]
+
+    center_moves = [move for move in best_moves if abs(move - config.columns // 2) <= 1]
+    if center_moves:
+        return random.choice(center_moves)
+
+    return random.choice(best_moves)
 
 
 # Run the ConnectX game environment
